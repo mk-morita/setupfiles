@@ -14,9 +14,9 @@ fi
 echo "Installing applications..."
 brew install argon/mas/mas
 brew install rcmdnk/file/brew-file
-
-brew file install ${SCRIPT_DIR}/Brewfile
-
+brew file init
+cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
+brew file install --force
 
 # install anyenv
 if [ -e ~/.anyenv ]; then
@@ -56,6 +56,10 @@ fi
 ln -s ${SCRIPT_DIR}/.bash_base ~/.bash_base
 ln -s ${SCRIPT_DIR}/.bash_alias ~/.bash_alias
 ln -s ${SCRIPT_DIR}/.bash_commandline ~/.bash_commandline
+
+if [ ! -e ~/.bash_base ]; then
+  touch ~/.bash_base
+fi
 
 grep "source ~/.bash_base" ~/.bash_profile
 if [ $? -eq 1 ]; then
