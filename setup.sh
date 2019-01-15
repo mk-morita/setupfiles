@@ -66,8 +66,8 @@ ln -s ${SCRIPT_DIR}/.bash_base ~/.bash_base
 ln -s ${SCRIPT_DIR}/.bash_alias ~/.bash_alias
 ln -s ${SCRIPT_DIR}/.bash_commandline ~/.bash_commandline
 
-if [ ! -e ~/.bash_base ]; then
-  touch ~/.bash_base
+if [ ! -e ~/.bash_profile ]; then
+  touch ~/.bash_profile
 fi
 
 grep "source ~/.bash_base" ~/.bash_profile
