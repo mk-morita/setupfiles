@@ -4,6 +4,12 @@ CURRENT_DIR=$(pwd)
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 cd ${SCRIPT_DIR}
 
+# install homebrew
+has brew
+if [ $? -eq 1 ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # install applications
 echo "Installing applications..."
 brew file install ${SCRIPT_DIR}/Brewfile
