@@ -1,0 +1,10 @@
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+source ~/.bash_commandline
+source ~/.bash_alias
+
+# anyenv settings
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

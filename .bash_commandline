@@ -1,0 +1,38 @@
+FG_NORMAL='\e[m'
+FG_BLACK='\e[30m'
+FG_RED='\e[31m'
+FG_GREEN='\e[32m'
+FG_YELLOW='\e[33m'
+FG_BLUE='\e[34m'
+FG_MAGENTA='\e[35m'
+FG_CYAN='\e[36m'
+FG_LIGHT_GRAY='\e[37m'
+
+jobs_size() {
+  local jobs_size=$(jobs | wc -l)
+  if [ ${jobs_size} -gt 0 ]; then
+    echo "[jobs: ${jobs_size}] "
+  else
+    echo ""
+  fi
+}
+
+repo_name_or_short_pwd() {
+  if [ ${PWD} = ${HOME} ]; then
+    echo "~"
+  elif [ -e ${PWD}/.git ]; then
+    echo $(awk -F / '{ print $(NF-1)"/"$(NF) }' <<< ${PWD})
+  else
+    # echo $(basename ${PWD})
+    echo ${PWD}
+  fi
+}
+
+GIT_PS1_SHOWDIRTYSTATE=true
+PS1_JOBS_SIZE=${FG_YELLOW}'$(jobs_size)'
+PS1_USER=${FG_GREEN}'\u'
+PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
+PS1_DIR=${FG_BLUE}'$(repo_name_or_short_pwd)'
+PS1_BRANCH=${FG_RED}'$(__git_ps1)'
+PS1_DOLLAR=${FG_NORMAL}'\n\$ '
+PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"

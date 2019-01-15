@@ -1,0 +1,5 @@
+alias bru='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+
+function gitc() {
+  git commit -m "$1"
+}
