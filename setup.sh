@@ -4,10 +4,28 @@ CURRENT_DIR=$(pwd)
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 cd ${SCRIPT_DIR}
 
+# install homebrew
+hash brew
+if [ $? -eq 1 ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # install applications
 echo "Installing applications..."
-brew file install ${SCRIPT_DIR}/Brewfile
 
+# install JDK 8
+brew tap caskroom/versions
+brew cask install java8
+
+# install Open JDK 11
+brew cask install java
+
+# install other applications
+brew install argon/mas/mas
+brew install rcmdnk/file/brew-file
+brew file init
+cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
+brew file install --force
 
 # install anyenv
 if [ -e ~/.anyenv ]; then
@@ -47,6 +65,10 @@ fi
 ln -s ${SCRIPT_DIR}/.bash_base ~/.bash_base
 ln -s ${SCRIPT_DIR}/.bash_alias ~/.bash_alias
 ln -s ${SCRIPT_DIR}/.bash_commandline ~/.bash_commandline
+
+if [ ! -e ~/.bash_base ]; then
+  touch ~/.bash_base
+fi
 
 grep "source ~/.bash_base" ~/.bash_profile
 if [ $? -eq 1 ]; then
