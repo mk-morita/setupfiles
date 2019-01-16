@@ -4,9 +4,6 @@ CURRENT_DIR=$(pwd)
 SCRIPT_DIR=$(cd $(dirname $0);pwd)
 cd ${SCRIPT_DIR}
 
-# install Xcode commandline tools
-xcode-select --install
-
 # install homebrew
 hash brew
 if [ $? -eq 1 ]; then
