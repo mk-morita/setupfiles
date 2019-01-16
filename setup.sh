@@ -75,7 +75,8 @@ grep "source ~/.bash_base" ~/.bash_profile
 if [ $? -eq 1 ]; then
   echo "source ~/.bash_base" >> ~/.bash_profile
 fi
-source ~/.bash_profile
+#source ~/.bash_profile
+exec $SHELL -l
 
 # setup anyenv
 echo "Setup anyenv..."
@@ -86,7 +87,6 @@ anyenv install ndenv
 echo "Setup jenv..."
 jenv add /Library/Java/JavaVirtualMachines/openjdk-11.0.1.jdk/Contents/Home
 jenv global openjdk64-11.0.1
-
 
 # docker auto complete settings
 echo "Setup docker auto complete command settings..."
