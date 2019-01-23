@@ -1,6 +1,62 @@
 # setupfiles
 
+Mac専用です。
+
+## What is this repository?
+新しく導入した Mac のセットアップをするためのスクリプト、設定ファイルを保持しています。
+
+セットアップスクリプトを実行することで、個別カスタマイズする前段階までの、必要なアプリケーションや設定を一括で行うことができます。
+
+パブリックリポジトリですので、業務に密着する情報は含まないようにしています。インストール完了後に個別設定してください。
+
+
+## Setup
+
+このリポジトリをホームディレクトリ等に clone して、セットアップ用スクリプトを実行します。
+```bash
+git clone https://github.com/mk-morita/setupfiles.git
+cd setupfiles
+./setup.sh
+```
+
 ---
+## インストールされるアプリケーション
+以下は一部。詳しくは `Brewfile`を参照。
+
+|application  |説明 |
+|------|---------|-----|
+|Atom  |テキストエディタ |
+|Bash  |Bash 5.0 |
+|Docker  |Docker for Mac |
+|Firefox  |ブラウザ |
+|Google Chrome  |ブラウザ |
+|Google Drive File Stream  |(無し)    |
+|Intellij IDEA CE  |Intellij IDEA CE |
+|iTerm2  |ターミナル |
+|Station  |Slack, Gmail, Google Calendar 等を1箇所で管理できる |
+|SonicWall Mobile Connect |VPN接続用 |
+|TeamSQL  |DB Manager |
+|Virtualbox  |Virtualbox |
+|vagrant  |vagrant |
+
+
+## 開発関連ツールの使い方
+
+### Auto complete
+セットアップを実行後、以下の auto complete が使えます。
+* Bash
+* Git
+* Docker
+
+### jenv: Java version を切り替える
+[`anyenv`](https://github.com/anyenv/anyenv) を利用して [`jenv`](http://www.jenv.be) をインストールしており、この `jenv` で Javaバージョン(`$JAVA_HOME`も切り替え可)の切り替えを行えます。
+
+
+---
+# Appendices
+以下は設定ファイル等用意するための手順や情報です。
+
+
 Reference:
 * [Qiita | Macで自動環境構築＆バックアップ(App Storeも)](https://qiita.com/takeo-asai/items/29724f94e2992fdc7246)
 
@@ -21,7 +77,7 @@ brew file install Brewfile
 
 ## Atom
 
-"Atom > Install Shell Commands"から`apm`を導入
+事前に "Atom > Install Shell Commands" から`apm`を導入しておく。
 
 ### Prepare Atomfile
 

@@ -38,16 +38,18 @@ cask java8
 tap homebrew/cask
 cask appcleaner
 cask docker
+cask firefox
 cask google-chrome
 cask google-japanese-ime
 cask iterm2
 cask kindle
-cask owncloud
-cask station
-cask teamsql
-cask vagrant
-cask virtualbox
-cask visual-studio-code
+cask mysqlworkbench
+cask postman
+cask slack
+cask switchhosts
+cask typora
+cask vagrant-manager
+cask virtualbox-extension-pack
 
 tap argon/mas
 
@@ -59,18 +61,21 @@ brew brew-file
 # Other Cask applications
 cask atom
 cask epichrome
+cask github
 cask google-drive-file-stream
 cask intellij-idea-ce
 cask java
-cask mysqlworkbench
-cask postman
-cask switchhosts
-cask typora
-cask vagrant-manager
-cask virtualbox-extension-pack
+cask meld
+cask owncloud
+cask silverlight
+cask station
+cask teamsql
+cask vagrant
+cask virtualbox
+cask visual-studio-code
 
 # App Store applications
-appstore 1333542190 1Password 7 (7.2.2)
+appstore 1333542190 1Password 7 (7.2.4)
 appstore 682658836 GarageBand (10.3.2)
 appstore 408981434 iMovie (10.1.10)
 appstore 409183694 Keynote (8.3)
@@ -78,7 +83,6 @@ appstore 409203825 Numbers (5.3)
 appstore 409201541 Pages (7.3)
 appstore 844918735 PicGIF Lite (2.0.8)
 appstore 407963104 Pixelmator (3.8.1)
-appstore 803453959 Slack (3.3.3)
 appstore 822514576 SonicWall Mobile Connect (5.0.2)
 appstore 435410196 Stay (1.2.8)
 appstore 425424353 The Unarchiver (4.0.0)

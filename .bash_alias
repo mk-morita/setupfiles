@@ -1,4 +1,5 @@
 alias bru='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+alias gd="git difftool --dir-diff"
 
 function gitc() {
   git commit -m "$1"
