@@ -48,8 +48,8 @@ cask postman
 cask slack
 cask switchhosts
 cask typora
-cask vagrant-manager
-cask virtualbox-extension-pack
+# cask vagrant-manager
+# cask virtualbox-extension-pack
 
 tap argon/mas
 
@@ -67,11 +67,11 @@ cask intellij-idea-ce
 cask java
 cask meld
 cask owncloud
-cask silverlight
+# cask silverlight
 cask station
 cask teamsql
-cask vagrant
-cask virtualbox
+# cask vagrant
+# cask virtualbox
 cask visual-studio-code
 
 # App Store applications
