@@ -37,7 +37,8 @@ brew install argon/mas/mas
 brew install rcmdnk/file/brew-file
 brew file init
 cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
-brew file install --force
+brew bundle
+echo
 
 ## install anyenv
 if [ -e ~/.anyenv ]; then
@@ -46,6 +47,7 @@ if [ -e ~/.anyenv ]; then
   cd ${SCRIPT_DIR}
 else
   git clone https://github.com/riywo/anyenv ~/.anyenv
+  anyenv install --init
 fi
 
 # ---

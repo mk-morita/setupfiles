@@ -39,7 +39,7 @@ tap homebrew/cask
 cask appcleaner
 cask docker
 cask firefox
-cask google-chrome
+#cask google-chrome
 cask google-japanese-ime
 cask iterm2
 cask kindle
@@ -75,15 +75,15 @@ cask teamsql
 cask visual-studio-code
 
 # App Store applications
-appstore 1333542190 1Password 7 (7.2.4)
-appstore 682658836 GarageBand (10.3.2)
-appstore 408981434 iMovie (10.1.10)
-appstore 409183694 Keynote (8.3)
-appstore 409203825 Numbers (5.3)
-appstore 409201541 Pages (7.3)
-appstore 844918735 PicGIF Lite (2.0.8)
-appstore 407963104 Pixelmator (3.8.1)
+# appstore 1333542190 1Password 7 (7.2.4)
+# appstore 682658836 GarageBand (10.3.2)
+# appstore 408981434 iMovie (10.1.10)
+# appstore 409183694 Keynote (8.3)
+# appstore 409203825 Numbers (5.3)
+# appstore 409201541 Pages (7.3)
+# appstore 844918735 PicGIF Lite (2.0.8)
+# appstore 407963104 Pixelmator (3.8.1)
 appstore 822514576 SonicWall Mobile Connect (5.0.2)
-appstore 435410196 Stay (1.2.8)
-appstore 425424353 The Unarchiver (4.0.0)
+# appstore 435410196 Stay (1.2.8)
+# appstore 425424353 The Unarchiver (4.0.0)
 appstore 497799835 Xcode (10.1)

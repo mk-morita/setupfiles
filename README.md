@@ -12,32 +12,46 @@ Mac専用です。
 
 ## Setup
 
+1. App Store アプリを起動し、Apple ID でログインしておく。
+
 1. AppStore以外のアプリケーションをインストールできる設定をターミナルから行う。
-```bash
-sudo spctl --master-disable
-spctl kext-consent disable
-```
 
-brewfile (select n):
-Do you want to set a repository (y)?
-
+  ```bash
+  sudo spctl --master-disable
+  spctl kext-consent disable
+  ```
 
 1. 下図のように設定する。
 
 1. このリポジトリをホームディレクトリ等に clone して、セットアップ用スクリプトを実行します。
-```bash
-git clone https://github.com/mk-morita/setupfiles.git
-cd setupfiles
-./setup.sh
-```
+
+  ```bash
+  git clone https://github.com/mk-morita/setupfiles.git
+  cd setupfiles
+  ./setup.sh
+  ```
+
+  git コマンドを実行するために必要な Xcode command line tools がインストールされていない場合はダイアログが表示されるので、それに従って先にインストールする。
+  インストール終了後、再度 `git clone` から手順を進める。
+  * 途中でパスワード入力を求められたりするので、時々実行中の状態を確認して対応する。
+  * パスワード以外で、 `Do you want to set a repository (y)? ((n) for local Brewfile). [y/n]:` と聞かれた場合は "n" を指定する。
 
 1. インストール完了後、下図のように設定を戻す。
 
 1. 最初に行った設定をターミナルから元に戻す。
-```
-sudo spctl --master-enable
-```
 
+  ```
+  sudo spctl --master-enable
+  ```
+
+1. 必要に応じて別途アプリケーションをインストールする
+
+  ```bash
+  brew cask install virtualbox
+  brew cask install virtualbox-extension-pack
+  brew cask install vagrant
+  brew cask install vagrant-manager
+  ```
 
 ---
 ## インストールされるアプリケーション
@@ -56,9 +70,6 @@ sudo spctl --master-enable
 |Station  |Slack, Gmail, Google Calendar 等を1箇所で管理できる |
 |SonicWall Mobile Connect |VPN接続用 |
 |TeamSQL  |DB Manager |
-|Virtualbox  |Virtualbox |
-|vagrant  |vagrant |
-
 
 ## 開発関連ツールの使い方
 
@@ -88,6 +99,9 @@ Reference:
 export HOMEBREW_BREWFILE=~/setupfiles/Brewfile
 brew file init
 ```
+
+* Vagrant, Virtualbox 関連は `Brewfile` から削除しておく。
+
 
 ### Restore Brewfile
 
