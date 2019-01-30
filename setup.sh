@@ -33,10 +33,10 @@ brew cask install java
 
 ## install other applications
 brew install git
-brew install argon/mas/mas
-brew install rcmdnk/file/brew-file
-brew file init
-cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
+#brew install argon/mas/mas
+#brew install rcmdnk/file/brew-file
+#brew file init
+#cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
 brew bundle
 echo
 
