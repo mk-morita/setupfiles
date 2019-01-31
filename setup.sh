@@ -57,8 +57,7 @@ if [ -e ~/.anyenv ]; then
   cd ${SCRIPT_DIR}
 else
   git clone https://github.com/riywo/anyenv ~/.anyenv
-  cd ~/.anyenv
-  echo "y" | anyenv install --init
+  ~/.anyenv/bin/anyenv install --init
   cd ${SCRIPT_DIR}
 fi
 
@@ -101,21 +100,20 @@ grep "source ~/.bash_base" ~/.bash_profile
 if [ $? -eq 1 ]; then
   echo "source ~/.bash_base" >> ~/.bash_profile
 fi
-exec $SHELL -l
 
 # ---
 # setup anyenv
 echo "Setup anyenv..."
-anyenv install jenv
-anyenv install ndenv
+~/.anyenv/bin/anyenv install jenv
+~/.anyenv/bin/anyenv install ndenv
 
 # ---
 # setup jenv
 echo "Setup jenv..."
-jenv enable-plugin export  # enable $JAVA_HOME switching
-jenv add /Library/Java/JavaVirtualMachines/jdk${JAVA8_VERSSION}.jdk/Contents/Home
-jenv add /Library/Java/JavaVirtualMachines/openjdk-${JAVA11_VERSSION}.jdk/Contents/Home
-jenv global openjdk64-${JAVA11_VERSSION}  # use JDK11 as globally
+~/.anyenv/envs/jenv/bin/jenv enable-plugin export  # enable $JAVA_HOME switching
+~/.anyenv/envs/jenv/bin/jenv add /Library/Java/JavaVirtualMachines/jdk${JAVA8_VERSSION}.jdk/Contents/Home
+~/.anyenv/envs/jenv/bin/jenv add /Library/Java/JavaVirtualMachines/openjdk-${JAVA11_VERSSION}.jdk/Contents/Home
+~/.anyenv/envs/jenv/bin/jenv global openjdk64-${JAVA11_VERSSION}  # use JDK11 as globally
 
 # ---
 # docker auto complete settings
@@ -147,6 +145,3 @@ kubectl completion bash > ${K8CTL_AUTOCOMPLETE}
 echo "Done."
 
 exec $SHELL -l
-APPLE_ID=""
-APPLE_ID_PW=""
-exit 0
