@@ -12,17 +12,6 @@ Mac専用です。
 
 ## Setup
 
-1. App Store アプリを起動し、Apple ID でログインしておく。
-
-1. AppStore以外のアプリケーションをインストールできる設定をターミナルから行う。
-
-  ```bash
-  sudo spctl --master-disable
-  spctl kext-consent disable
-  ```
-
-1. 下図のように設定する。
-
 1. このリポジトリをホームディレクトリ等に clone して、セットアップ用スクリプトを実行します。
 
   ```bash
@@ -31,27 +20,21 @@ Mac専用です。
   ./setup.sh
   ```
 
-  git コマンドを実行するために必要な Xcode command line tools がインストールされていない場合はダイアログが表示されるので、それに従って先にインストールする。
+>  git コマンドを実行するために必要な Xcode command line tools がインストールされていない場合はダイアログが表示されるので、それに従って先にインストールする。
   インストール終了後、再度 `git clone` から手順を進める。
   * 途中でパスワード入力を求められたりするので、時々実行中の状態を確認して対応する。
-  * パスワード以外で、 `Do you want to set a repository (y)? ((n) for local Brewfile). [y/n]:` と聞かれた場合は "n" を指定する。
-
-1. インストール完了後、下図のように設定を戻す。
-
-1. 最初に行った設定をターミナルから元に戻す。
-
-  ```
-  sudo spctl --master-enable
-  ```
 
 1. 必要に応じて別途アプリケーションをインストールする
 
   ```bash
+  # 例
   brew cask install virtualbox
   brew cask install virtualbox-extension-pack
   brew cask install vagrant
   brew cask install vagrant-manager
   ```
+
+
 
 ---
 ## インストールされるアプリケーション
@@ -64,12 +47,16 @@ Mac専用です。
 |Docker  |Docker for Mac |
 |Firefox  |ブラウザ |
 |Google Chrome  |ブラウザ |
-|Google Drive File Stream  |(無し)    |
-|Intellij IDEA CE  |Intellij IDEA CE |
+|Google Drive File Stream  |    |
+|IntelliJ IDEA CE  |IntelliJ IDEA Community Edition |
 |iTerm2  |ターミナル |
 |Station  |Slack, Gmail, Google Calendar 等を1箇所で管理できる |
-|SonicWall Mobile Connect |VPN接続用 |
+|SonicWall Mobile Connect **(*1)** |VPN接続用 |
 |TeamSQL  |DB Manager |
+
+
+> **(*1)** 現在、 `mas` コマンドでの App Store で提供されているアプリのインストールができないため、手動で行う。
+
 
 ## 開発関連ツールの使い方
 

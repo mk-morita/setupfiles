@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-HISTORY_NUMBER=$(history | tail -2 | awk 'NR==1' | awk '{print $1}')
-unset HISTFILE
-history -d ${HISTORY_NUMBER}
-
 # ---
 # App Store 経由でインストールするための Apple IDログイン情報
 APPLE_ID=${1}
@@ -36,6 +32,7 @@ fi
 echo "Installing applications..."
 brew update
 brew install mas
+brew link mas
 
 ## install latest Bash
 brew install bash
@@ -49,11 +46,7 @@ brew cask install java
 
 ## install other applications
 brew install git
-#brew install argon/mas/mas
-#brew install rcmdnk/file/brew-file
-#brew file init
-#cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
-mas signin ${APPLE_ID} ${APPLE_ID_PW}
+# mas signin ${APPLE_ID} ${APPLE_ID_PW}
 brew bundle
 echo
 
