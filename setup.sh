@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+HISTORY_NUMBER=$(history | tail -2 | awk 'NR==1' | awk '{print $1}')
+unset HISTFILE
+history -d ${HISTORY_NUMBER}
+
+# ---
+# App Store 経由でインストールするための Apple IDログイン情報
+APPLE_ID=${1}
+APPLE_ID_PW=${2}
+
 # ---
 # Javaアップデートのタイミングで、バージョン番号の更新が必要
 JAVA8_VERSSION="1.8.0_202"
@@ -17,9 +26,16 @@ if [ $? -eq 1 ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+if [ ! -d /usr/local/Frameworks ] ; then
+  sudo mkdir /usr/local/Frameworks
+  sudo chown $(whoami):admin /usr/local/Frameworks
+fi
+
 # ---
 # install applications
 echo "Installing applications..."
+brew update
+brew install mas
 
 ## install latest Bash
 brew install bash
@@ -37,6 +53,7 @@ brew install git
 #brew install rcmdnk/file/brew-file
 #brew file init
 #cp ${SCRIPT_DIR}/Brewfile ~/.config/brewfile/Brewfile
+mas signin ${APPLE_ID} ${APPLE_ID_PW}
 brew bundle
 echo
 
@@ -135,4 +152,6 @@ kubectl completion bash > ${K8CTL_AUTOCOMPLETE}
 echo "Done."
 
 exec $SHELL -l
+APPLE_ID=""
+APPLE_ID_PW=""
 exit 0

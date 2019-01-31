@@ -15,9 +15,9 @@ brew "graphviz"
 brew "hub"
 brew "jq"
 brew "kubernetes-cli"
+brew "mas", link: false
 brew "maven"
 brew "wget"
-brew "argon/mas/mas"
 brew "rcmdnk/file/brew-file"
 cask "appcleaner"
 cask "atom"
@@ -49,13 +49,13 @@ cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "visual-studio-code"
 mas "1Password 7", id: 1333542190
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "PicGIF Lite", id: 844918735
-mas "Pixelmator", id: 407963104
+# mas "GarageBand", id: 682658836
+# mas "iMovie", id: 408981434
+# mas "Keynote", id: 409183694
+# mas "Numbers", id: 409203825
+# mas "Pages", id: 409201541
+# mas "PicGIF Lite", id: 844918735
+# mas "Pixelmator", id: 407963104
 mas "SonicWall Mobile Connect", id: 822514576
 mas "Stay", id: 435410196
 mas "The Unarchiver", id: 425424353
