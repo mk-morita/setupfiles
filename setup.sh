@@ -57,7 +57,9 @@ if [ -e ~/.anyenv ]; then
   cd ${SCRIPT_DIR}
 else
   git clone https://github.com/riywo/anyenv ~/.anyenv
-  anyenv install --init
+  cd ~/.anyenv
+  echo "y" | anyenv install --init
+  cd ${SCRIPT_DIR}
 fi
 
 # ---
